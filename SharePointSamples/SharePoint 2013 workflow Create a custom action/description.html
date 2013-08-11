@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>SharePoint 2013 workflow: Create a custom action</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>SharePoint 2013 workflow: Create a custom action</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            SharePoint Server 2013, SharePoint Foundation 2013, apps for SharePoint
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Workflows
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web, Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">4/9/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/SharePoint-2013-workflow-41e5c0f9">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<div id="header"><span class="label">Provided by:</span>&nbsp;&nbsp;<a href="http://social.msdn.microsoft.com/profile/andrew%20connell%20%5bmvp%5d/" >Andrew Connell</a>,
+<a href="http://www.andrewconnell.com" >www.AndrewConnell.com</a></div>
+<div id="mainSection">
+<div id="mainBody">
+<div class="introduction">
+<div class="section" id="sectionSection0">
+<p>The sample workflow is bound to a list named <span class="ui">Customers</span>. After the user enters a value for
+<span><span class="keyword">CustomerID</span></span>, they can manually run the workflow. The workflow uses the
+<span><span class="keyword">CustomerID</span></span> to search for the customer using the public Northwind sample OData service (<a href="http://services.odata.org/Northwind/Northwind.svc/" >http://services.odata.org/Northwind/Northwind.svc/</a>).
+ When it finds the customer, it adds the details it retrieves from the service to the list item and then concludes.</p>
+<p>The part of the workflow that calls the web service and extracts the details from the response is contained within a custom activity,
+<span><span class="keyword">GetNWCustomerDetailsWorkflow</span></span>.</p>
+</div>
+<h1 class="heading">Prerequisites</h1>
+<div class="section" id="sectionSection1">
+<p>This sample requires the following;</p>
+<ul>
+<li>
+<p>Installed and configured SharePoint 2013 RTM environment that is connected to a configured Workflow Manager 1.0 farm</p>
+</li><li>
+<p>Service Bus 1.0 February 2013 Cumulative Update applied</p>
+</li><li>
+<p>Workflow Manager 1.0 February 2013 Cumulative Update applied</p>
+</li><li>
+<p>SharePoint 2013 March 2013 Public Update applied</p>
+</li><li>
+<p>Visual Studio 2012</p>
+</li><li>
+<p>Office Developer Tools for Visual Studio 2012</p>
+</li></ul>
+</div>
+<h1 class="heading">Run the sample</h1>
+<div class="section" id="sectionSection2">
+<p>Follow these steps to run the sample.</p>
+<div class="subSection">
+<ol>
+<li>
+<p>Start Visual Studio 2012, and open the solution file <span class="ui">CompleteCustomerDetails.sln</span>.</p>
+</li><li>
+<p>In the <span class="ui">Property</span> window, edit the <span class="ui">
+Site URL</span> property to point to the site to which you wish to deploy.</p>
+</li><li>
+<p>Press F5 to build and deploy the workflow.</p>
+</li><li>
+<p>When the browser opens, navigate to the <span class="ui">Customers</span> list and create a new customer list item. Enter only the
+<span class="ui">CustomerID</span> field using the value <span class="input">
+EASTC</span>.</p>
+</li><li>
+<p>Open the item's workflow settings, and start the only workflow option.</p>
+<p>After a brief pause, the workflow starts, and you are redirected to the <span class="ui">
+Customer</span> list view. Navigate to the list item's <span class="ui">Workflow Status</span> page and keep refreshing it to see the progress of the workflow. It should take about 10-20 seconds to complete.</p>
+</li><li>
+<p>When the browser opens, navigate to the <span class="ui">Customers</span> list and create a new customer item. Provide a value only for the
+<span class="ui">CustomerID</span> field: <strong>EASTC</strong>.</p>
+</li><li>
+<p>After creating the item, go to the item and manually start the &quot;Complete Customer Details&quot; workflow.</p>
+</li><li>
+<p>After a few seconds, the workflow starts and you are redirected to the <span class="ui">
+Customer</span> list view. Navigate to the list item's workflow status page and keep refreshing it to see the progress of the workflow. It should take about 10-20 seconds to complete.</p>
+</li><li>
+<p>Once the workflow is complete, navigate to the item and note how the item fields have been updated. You should see the following values:</p>
+<ul>
+<li>
+<p><span class="ui">CustomerID</span> = EASTC</p>
+</li><li>
+<p><span class="ui">Contact Name</span> = Ann Devon</p>
+</li><li>
+<p><span class="ui">Job Title</span> = Sales Agent</p>
+</li><li>
+<p><span class="ui">Address</span> = 35 King George / London</p>
+</li><li>
+<p><span class="ui">Country/Region</span> = UK</p>
+</li><li>
+<p><span class="ui">Business Phone</span> = (171) 555-0297</p>
+</li><li>
+<p><span class="ui">Fax Number</span> = (171) 555-3373</p>
+</li></ul>
+</li></ol>
+</div>
+</div>
+<h1 class="heading">Change log</h1>
+<div class="section" id="sectionSection3">
+<div class="caption"></div>
+<div class="tableSection">
+<table cellspacing="2" cellpadding="5" width="50%" frame="lhs">
+<tbody>
+<tr>
+<th>
+<p>Version</p>
+</th>
+<th>
+<p>Date</p>
+</th>
+</tr>
+<tr>
+<td>
+<p>First release</p>
+</td>
+<td>
+<p>July 16, 2012</p>
+</td>
+</tr>
+<tr>
+<td>
+<p>Revised</p>
+</td>
+<td>
+<p>April 3, 2013</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 class="heading">Related content</h1>
+<div class="section" id="sectionSection4">
+<ul>
+<li>
+<p><a href="http://msdn.microsoft.com/en-us/library/ffaccd6b-426d-4ca0-b62f-bc7b14641a49" >SharePoint 2013 workflow samples</a></p>
+</li><li>
+<p><a href="http://msdn.microsoft.com/en-us/library/jj163917.aspx" >Get started with workflows in SharePoint 2013</a></p>
+</li><li>
+<p><a href="http://msdn.microsoft.com/en-us/library/jj163181.aspx" >SharePoint 2013 workflow fundamentals</a></p>
+</li></ul>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+    </div>
+</body>
+</html>

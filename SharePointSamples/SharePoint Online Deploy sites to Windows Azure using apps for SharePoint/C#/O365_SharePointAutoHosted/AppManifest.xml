@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created:cb85b80c-f585-40ff-8bfc-12ff4d0e34a9-->
+<App xmlns="http://schemas.microsoft.com/sharepoint/2012/app/manifest"
+     Name="O365Sample_23_Solution"
+     ProductID="{887c5987-6192-4dde-bcaa-33dd671f0f2d}"
+     Version="1.0.0.0"
+     SharePointMinVersion="15.0.0.0"
+>
+  <Properties>
+    <Title>O365_SharePointAutoHosted</Title>
+    <StartPage>~remoteAppUrl/Pages/Default.aspx?{StandardTokens}</StartPage>
+  </Properties>
+
+  <AppPrincipal>
+    <AutoDeployedWebApplication/>
+  </AppPrincipal>
+
+  <AppPrerequisites> 
+    <AppPrerequisite Type="AutoProvisioning" ID="RemoteWebHost" />
+    <AppPrerequisite Type="AutoProvisioning" ID="Database" />
+  </AppPrerequisites>
+  <AppPermissionRequests>
+    <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="FullControl" />
+    <AppPermissionRequest Scope="http://sharepoint/content/sitecollection" Right="FullControl" />
+    <AppPermissionRequest Scope="http://sharepoint/social/tenant" Right="FullControl" />
+  </AppPermissionRequests>
+</App>

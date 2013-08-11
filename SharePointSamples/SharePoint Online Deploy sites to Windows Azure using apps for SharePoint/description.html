@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>SharePoint Online: Deploy sites to Windows Azure using apps for SharePoint</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>SharePoint Online: Deploy sites to Windows Azure using apps for SharePoint</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Office 365, Sharepoint Online, apps for SharePoint
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            SQL, Windows Azure, SharePoint
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">3/5/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/SharePoint-Online-Deploy-082f0536">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<p id="header"><span class="label">Summary:</span> Learn how to create a basic autohosted app for SharePoint that uses a web project and SQL database project to create, read, or show data on an Office 365 Developer Site.</p>
+<div id="mainSection">
+<div id="mainBody">
+<div class="introduction">
+<div>&nbsp;</div>
+</div>
+<h1 class="heading">Description of the sample</h1>
+<div class="section" id="sectionSection0">
+<p>This sample shows you how to upload an autohosted app for SharePoint that includes a SQL Azure database. The database project contains all the tables and data. The app for SharePoint includes a user interface (UI) to search for an employee name in the database.</p>
+</div>
+<h1 class="heading">Prerequisites</h1>
+<div class="section" id="sectionSection1">
+<div>This sample requires the following:</div>
+<ul>
+<li>
+<div>An Office 365 Developer Site.</div>
+</li><li>
+<div>Visual Studio 2012 and Office Developer Tools for Visual Studio 2012 installed on your computer.</div>
+</li></ul>
+</div>
+<h1 class="heading">Key components of the sample</h1>
+<div class="section" id="sectionSection2">
+<div>The sample zip file contains the following:</div>
+<ul>
+<li>
+<div>An O365_SharePointAutoHosted Visual Studio 2012 solution file that contains the AppManifest.xml file and the two projects, O365_SharePointAutoHostedWeb and O365_SharePointAutoHostedDB.</div>
+</li><li>
+<div>The O365_SharePointAutoHostedWeb project includes the following:</div>
+<ul>
+<li>
+<div>The Default.aspx file that contains the HTML and ASP.NET controls for the user interface of the app for SharePoint.</div>
+</li><li>
+<div>The Default.aspx.cs file that contains the C# code that connects to the SQL Azure database.</div>
+</li></ul>
+</li><li>
+<div>The O365_SharePointAutoHostedDB project contains the following:</div>
+<ul>
+<li>
+<div>The Employee.sql file that creates a database table.</div>
+</li><li>
+<div>The Script.PostDeployment1.sql file that populates the table with sample data.</div>
+</li></ul>
+</li></ul>
+</div>
+<h1 class="heading">Configure the sample</h1>
+<div class="section" id="sectionSection3">
+<ol>
+<li>
+<div>Open Visual Studio 2012 with administrator privileges.</div>
+</li><li>
+<div>On the <span class="ui">File</span> menu, click <span class="ui">Open</span>,
+<span class="ui">Project/Solution</span> and then navigate to the folder where you unzipped the O365_SharePointAuthoHosted.sln file, select it and click
+<span class="ui">Open</span>.</div>
+</li><li>
+<div>Right-click the O365_SharePointAutoHosted solution in the Solution Explorer, click
+<span class="ui">Properties</span>, and on the <span class="ui">Property Pages</span> pane, make sure the
+<span class="ui">Multiple startup projects</span> option is selected and then change the
+<span class="ui">Action</span> for the O365_SharePointAutoHostedDB to <span class="ui">
+Start</span> instead of <span class="ui">None</span>. This will execute the database project and generate your database when you build the project.</div>
+</li><li>
+<div>To generate a DACPAC file, right-click the O365_SharePointAutoHostedDB database project in the Solution Explorer, and then click
+<span class="ui">Build</span>. This creates a database with tables and provides you the DACPAC file in the Debug folder if you are working in the Debug mode; otherwise, you should find it in the Release folder. The file path will be similar to
+<span class="placeholder">[Your application root folder name]</span>\O365_SharePointAutoHostedDB\bin\Debug\O365_SharePointAutoHostedDB.dacpac.</div>
+</li><li>
+<div>To link your database project to the solution, select the O365_SharePointAutoHosted project in the Solution Explorer and in the
+<span class="ui">Properties</span> pane below the Solution Explorer, click on the down arrow in the
+<span class="ui">SQL Database</span> field and then <span class="ui">Select the SQL Package</span> and navigate to the location on your computer where the DACPAC file is located.</div>
+</li><li>
+<div>In the O365_SharePointAutoHosted Web project, add a SqlAzureConnectionString property in the
+<span class="code">&lt;appSettings&gt;</span> section of the Web.config file.</div>
+<div class="code"><span>
+<table cellspacing="0" cellpadding="0" width="100%">
+<tbody>
+<tr>
+<th>XML </th>
+<th>&nbsp;</th>
+</tr>
+<tr>
+<td colspan="2">
+<pre>&lt;add key=&quot;SqlAzureConnectionString&quot; value=&quot;Data Source=(localdb)\Projects;</pre>
+<pre>	Initial Catalog=O365_SharePointAutoHostedDB;Integrated Security=True;</pre>
+<pre>	Connect Timeout=30;Encrypt=False;TrustServerCertificate=False&quot; /&gt; </pre>
+</td>
+</tr>
+</tbody>
+</table>
+</span></div>
+</li><li>
+<div>Select the O365_SharePointAutoHosted project in the Solution Explorer and in the Properties pane below, enter the URL of your Office 365 Developer Site into the
+<span class="ui">Site URL</span> property field.</div>
+</li></ol>
+</div>
+<h1 class="heading">Build the sample</h1>
+<div class="section" id="sectionSection4">
+<div>The app for SharePoint can now be uploaded to the App Catalog of a SharePoint Online tenancy. For further debugging, you can deploy the app directly from Visual Studio 2012 to a SharePoint Online website if it was created with the site template. To do
+ this, right-click the O365_SharePointAutoHosted solution in Solution Explorer and select
+<span class="ui">Deploy</span>. Tenant administrators can install the app for SharePoint on their Office 365 Developer Site tenancy by using the following procedure:</div>
+<ol>
+<li>
+<div>Right-click the O365_SharePointAutoHosted solution and select <span class="ui">
+Publish</span>.</div>
+</li><li>
+<div>On the Publish Summary page select the <span class="ui">Open output folder after successful packaging</span> option and then click
+<span class="ui">Finish</span>.</div>
+</li><li>
+<div>A folder that contains the O365_SharePointAutoHosted.app file opens--note the file location. The file path will be similar to
+<span class="placeholder">[Your application root folder name]</span>\O365_SharePointAutoHosted\O365_SharePointAutoHosted\O365_SharePointAutoHosted\bin\Debug\app.publish\1.0.0.0\ O365_SharePointAutoHosted.app.</div>
+</li></ol>
+</div>
+<h1 class="heading">Run and test the sample</h1>
+<div class="section" id="sectionSection5">
+<ol>
+<li>
+<div>Open your Office 365 Developer Site.</div>
+</li><li>
+<div>On the Developer Site, in the Apps in Testing list, click the plus sign next to the text
+<span class="ui">new app to deploy</span>.</div>
+</li><li>
+<div>On the <span class="ui">Deploy App</span> page, click the link text <span class="ui">
+upload</span>.</div>
+</li><li>
+<div>Navigate to the location of O365_SharePointAutoHosted.app, select it and click
+<span class="ui">OK</span>.</div>
+</li><li>
+<div>Click <span class="ui">Deploy</span> and on the next dialog click <span class="ui">
+Trust it</span>.</div>
+</li><li>
+<div>The application will be uploaded to your Office 365 Developer Site.</div>
+</li><li>
+<div>On your Developer Site, in the <span class="ui">Apps in Testing</span> directory, click the O365_SharePointAutoHosted app to run it.</div>
+</li><li>
+<div>On the page titled &quot;Office 365 Sample Code: SharePoint Auto-Hosted App&quot; you can enter any of the EmployeeNames you find in the Script.PostDeployment1.sql file of the O365_SharePointAutoHostedDB project. You can also enter the character &quot;%&quot; to view all
+ the items in the database.</div>
+<div>The entire list is shown in the following figure.</div>
+</li></ol>
+<div class="caption"><strong>Figure 1. The employee list.</strong></div>
+<br>
+<img id="77231" src="description/sharepointautohostedemployeelist - copy.jpg" alt="The list that is displayed by the app." width="685" height="204"></div>
+<h1 class="heading">Troubleshooting</h1>
+<div class="section" id="sectionSection6">
+<p>The following table lists common configuration and environment errors that prevent the sample from running or deploying properly and how you can solve them.</p>
+<div class="caption"></div>
+<div class="tableSection">
+<table cellspacing="2" cellpadding="5" width="50%" frame="lhs">
+<tbody>
+<tr>
+<th>
+<div>Problem</div>
+</th>
+<th>
+<div>Solution</div>
+</th>
+</tr>
+<tr>
+<td>
+<div>The app fails to upload to Developer Site.</div>
+</td>
+<td>
+<div>Make sure you entered the Site URL correctly in the configuration steps.</div>
+</td>
+</tr>
+<tr>
+<td>
+<div>The app does not display content.</div>
+</td>
+<td>
+<div>Make sure you linked to your DACAP file location properly in the configuration steps.</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 class="heading">Change log</h1>
+<div class="section" id="sectionSection7">
+<div class="caption"></div>
+<div class="tableSection">
+<table cellspacing="2" cellpadding="5" width="50%" frame="lhs">
+<tbody>
+<tr>
+<th>
+<div>Version</div>
+</th>
+<th>
+<div>Date</div>
+</th>
+</tr>
+<tr>
+<td>
+<div>First version</div>
+</td>
+<td>
+<div>February, 28 2013</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h1 class="heading">Related content</h1>
+<div class="section" id="sectionSection8">
+<ul>
+<li>
+<div><a href="http://msdn.microsoft.com/library/1b992485-6efe-4ea4-a18c-221689b0b66f.aspx" >How to: Create a basic SharePoint-hosted app</a></div>
+</li><li>
+<div><a href="http://msdn.microsoft.com/library/f86e2695-4d7a-4fc5-bc23-689de96c4b06.aspx" >SharePoint 2013 development overview</a></div>
+</li><li>
+<div><a href="http://msdn.microsoft.com/library/d07e0a13-1e74-4128-857a-513dedbfef33.aspx" >Getting started developing SharePoint apps</a></div>
+</li><li>
+<div><a href="http://msdn.microsoft.com/library/3038dd73-41ee-436f-8c78-ef8e6869bf7b.aspx" >How to: Create a basic provider-hosted app for SharePoint</a></div>
+</li><li>
+<div><a href="http://msdn.microsoft.com/en-us/library/fp179887" >Hosting options for apps for SharePoint</a></div>
+</li><li>
+<div><a href="http://msdn.microsoft.com/library/ae96572b-8f06-4fd3-854f-fc312f7f2d88.aspx" >Detailed introduction to the SharePoint app model</a></div>
+</li></ul>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+
+</div>
+
+
+    </div>
+</body>
+</html>
