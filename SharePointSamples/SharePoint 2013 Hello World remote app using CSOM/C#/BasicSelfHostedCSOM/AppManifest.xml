@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<App xmlns="http://schemas.microsoft.com/sharepoint/2012/app/manifest"
+     Name="BasicSelfHostedCSOM"
+     ProductID="{ddcfeed4-7a7d-4842-89ba-ddbf492be365}"
+     Version="1.0.0.0"
+     SharePointMinVersion="15.0.0.0"
+>
+  <Properties>
+    <Title>BasicSelfHostedCSOM</Title>
+    <StartPage>~remoteAppUrl/Home.aspx?{StandardTokens}</StartPage>
+  </Properties>
+
+  <AppPrincipal>
+    <RemoteWebApplication ClientId="*" />
+  </AppPrincipal>
+<AppPermissionRequests><AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read" /></AppPermissionRequests></App>

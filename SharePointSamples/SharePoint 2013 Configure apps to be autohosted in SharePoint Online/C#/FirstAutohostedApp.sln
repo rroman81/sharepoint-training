@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstAutohostedApp", "FirstAutohostedApp\FirstAutohostedApp.csproj", "{A2445F74-81A7-487C-92DA-FC644BB147E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FirstAutohostedAppWeb", "FirstAutohostedAppWeb\FirstAutohostedAppWeb.csproj", "{8A5A9478-68AF-49F4-9A2D-5E3E19C4C3B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A5A9478-68AF-49F4-9A2D-5E3E19C4C3B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A5A9478-68AF-49F4-9A2D-5E3E19C4C3B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A5A9478-68AF-49F4-9A2D-5E3E19C4C3B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A5A9478-68AF-49F4-9A2D-5E3E19C4C3B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2445F74-81A7-487C-92DA-FC644BB147E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2445F74-81A7-487C-92DA-FC644BB147E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2445F74-81A7-487C-92DA-FC644BB147E6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A2445F74-81A7-487C-92DA-FC644BB147E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2445F74-81A7-487C-92DA-FC644BB147E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2445F74-81A7-487C-92DA-FC644BB147E6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicSelfHostedCSOM", "BasicSelfHostedCSOM\BasicSelfHostedCSOM.csproj", "{326C65F5-0DDE-4A9F-87E2-4216E47FA65B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicSelfHostedCSOMWeb", "BasicSelfHostedCSOMWeb\BasicSelfHostedCSOMWeb.csproj", "{18971721-F25C-4B24-A98C-C0B33AB3BD80}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{18971721-F25C-4B24-A98C-C0B33AB3BD80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18971721-F25C-4B24-A98C-C0B33AB3BD80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18971721-F25C-4B24-A98C-C0B33AB3BD80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18971721-F25C-4B24-A98C-C0B33AB3BD80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{326C65F5-0DDE-4A9F-87E2-4216E47FA65B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{326C65F5-0DDE-4A9F-87E2-4216E47FA65B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{326C65F5-0DDE-4A9F-87E2-4216E47FA65B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{326C65F5-0DDE-4A9F-87E2-4216E47FA65B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{326C65F5-0DDE-4A9F-87E2-4216E47FA65B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{326C65F5-0DDE-4A9F-87E2-4216E47FA65B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

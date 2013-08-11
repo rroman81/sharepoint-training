@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>Files sample</title>
+        <script 
+            src="//ajax.aspnetcdn.com/ajax/4.0/1/MicrosoftAjax.js" 
+            type="text/javascript">
+        </script>
+        <script 
+            type="text/javascript" 
+            src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.2.min.js">
+        </script>
+
+        <script 
+            type="text/javascript"
+            src="Files.js">
+        </script>
+    </head>
+    <body>
+
+
+
+ <div id="MainContent">
+    <input type="text" value="Folder name here" id="createFolderBox"/><button id="createFolderButton">Create Folder</button>
+    <p>
+    Folders
+    <br />
+    <select id="selectFolderBox" onchange="getFiles()"></select><button id="deleteFolderButton">Delete Selected Folder</button>
+    </p>
+
+    <p>
+    Files
+    <br />
+    <input type="text" value="File name here" id="createFileBox"/><button id="createFileButton">Create File</button>
+    </p>
+    <p>
+    <select id="selectFileBox"></select> <button id="deleteFileButton">Delete Selected File</button><button id="getFileButton">Get Selected File</button>
+    </p>
+
+     <textarea name="submitTextFile" id="submitTextFile" rows="10" cols="40">Type file text here.</textarea><button id="updateFileButton">Replace file contents</button>
+     <label id="Error"></label>
+</div>
+
+    </body>
+</html>

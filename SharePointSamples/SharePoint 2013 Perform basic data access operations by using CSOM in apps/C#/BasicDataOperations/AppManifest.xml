@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<App xmlns="http://schemas.microsoft.com/sharepoint/2012/app/manifest"
+     ProductID="{0fa4532a-3344-46d7-bae7-d311977a664b}"
+     Version="1.0.0.0"
+     SharePointMinVersion="15.0.0.0" Name="BasicDataOperations"
+>
+  <Properties>
+    <Title>BasicDataOperations</Title>
+    <StartPage>~remoteAppUrl/Home.aspx?{StandardTokens}</StartPage>
+  </Properties>
+
+  <AppPrincipal>
+    <AutoDeployedWebApplication />
+  </AppPrincipal>
+
+
+<AppPermissionRequests><AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Manage" /></AppPermissionRequests></App>

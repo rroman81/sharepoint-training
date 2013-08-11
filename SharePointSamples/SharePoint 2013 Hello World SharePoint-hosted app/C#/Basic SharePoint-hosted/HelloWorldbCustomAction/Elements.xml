@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <!-- Adds an ECB custom action to a list in the host web site. -->
+  <!-- Create a new custom list and add a new item to it. This custom action will be on the new item's ECB -->
+  <CustomAction Id="ab533dd5-1957-45a7-81bb-d31e6f465514.HelloWorldbCustomAction"
+                RegistrationType="List"
+                RegistrationId="100"
+                Location="EditControlBlock"
+                Sequence="100"
+                Title="Invoke 'HelloWorldbCustomAction' action"
+                ImageUrl ="http://www.bing.com/fd/s/a/h2.png">
+    <UrlAction Url="~appWebUrl/Pages/Home.aspx?{StandardTokens}"/>
+  </CustomAction>
+</Elements>

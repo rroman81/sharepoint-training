@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,1:ImageSprite;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Content/Css:1&amp;amp;hashKey=E7560C71640616C5057FAEACB58DCB00" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/2f95808e-ca34-4249-88ff-44fabe33cdc0Combined.css,1:LinkList,2:ImageSprite,2:SiteFeedbackLink;/Areas/Epx/Themes/Msdn/Content:0,/Areas/Epx/Themes/Base/Content:1,/Areas/Epx/Content/Css:2&amp;amp;hashKey=EEE39C2D6B93379FDAF50337BE99AF8C" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>SharePoint 2013: Perform operations on SharePoint Document Library from PHP site</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>SharePoint 2013: Perform operations on SharePoint Document Library from PHP site</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            REST, Javascript, Sharepoint Online, PHP, Visual Studio 2012, apps for SharePoint
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            Cloud
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary Language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Last Updated</label>
+                    <div id="LastUpdated">3/6/2013</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">Apache License, Version 2.0</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/SharePoint-2013-Perform-8a78b8ef">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy Code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<div id="header"><span class="label">Summary:</span> Learn how to perform operations on files stored in a SharePoint 2013 document library from a PHP site.</div>
+<div id="mainSection">
+<div id="mainBody">
+<div class="introduction">
+<div>&nbsp;</div>
+</div>
+<h1 class="heading">Description of the sample</h1>
+<div class="section" id="sectionSection0">
+<div><span class="label">Provided by:</span></div>
+</div>
+<div class="section" id="sectionSection0">
+<div><a href="http://www.canviz.com" >Todd Baginski</a>, Canviz Consulting</div>
+<div>This sample provider-hosted app for SharePoint shows how to perform the following operations on files stores in a SharePoint 2013 document library from a PHP site:</div>
+<ul>
+<li>
+<div>List documents</div>
+</li><li>
+<div>Check out a document</div>
+</li><li>
+<div>Check in a document</div>
+</li><li>
+<div>Upload a document</div>
+</li><li>
+<div>Edit document metadata</div>
+</li></ul>
+<div>The index.php page of the app appears after you install and launch the app. It displays all items in a SharePoint 2013 document library and uses the SharePoint theme from the host web. The app includes an
+<span class="ui">Add New Document</span> button at the bottom right corner, as shown in Figure 1.</div>
+<div class="caption"><strong>Figure 1. The download button on the index.php page of the app for SharePoint</strong></div>
+<br>
+<img id="76480" src="description/SP15_phpapp_downloadbutton.png" alt="The download button on the index.php page of the app for SharePoint" width="624" height="147">
+<div>You can upload a file to the SharePoint library by clicking the <span class="ui">
+Add New Document</span> button. The index.php page refreshes to display the new item, as shown in Figure 2.</div>
+<div class="caption"><strong>Figure 2. Newly added file in list of files</strong></div>
+<br>
+<img id="76481" src="description/SP15_phpapp_newitem.png" alt="The newly added file appears in the list of files" width="624" height="173">
+<div>Right-click the title of the file to perform the following operations: download, check in, check out and edit properties, as shown in Figure 3.</div>
+<div class="caption"><strong>Figure 3. Metadata popup menu appears when you right-click title</strong></div>
+<br>
+<img id="76482" src="description/SP15_phpapp_popmenu.png" alt="Click on the title of the file to see the metadata popup menu" width="196" height="157"></div>
+<h1 class="heading">Prerequisites</h1>
+<div class="section" id="sectionSection1">
+<div>This sample requires the following:</div>
+<ul>
+<li>
+<div>An Office 365 Developer Site</div>
+</li><li>
+<div>Visual Studio 2012 and Office Developer Tools for Visual Studio 2012 installed on your development computer</div>
+</li><li>
+<div>A <a href="http://code.msdn.microsoft.com/SharePoint-2013-Perform-8a78b8ef/https://manage.windowsazure.com" >Windows Azure account</a> with permissions to deploy a cloud service and a worker role</div>
+</li><li>
+<div>Windows Azure SDK for .NET (VS 2012) 1.8</div>
+</li></ul>
+</div>
+<h1 class="heading">Sample for demo only: deviations from best practices</h1>
+<div class="section" id="sectionSection2">
+<div>The sample's focus is to demonstrate a provider-hosted app for SharePoint that runs on a remote PHP site. It does not conform to all the best practices that you should use in a production app. Especially, be aware of the following:</div>
+<ul>
+<li>
+<div>The app does not provide any protection from SQL injection attacks.</div>
+</li><li>
+<div>The app has no exception handling.</div>
+</li><li>
+<div>The app does not support spaces in the file name.</div>
+</li></ul>
+</div>
+<h1 class="heading">Key components of the sample</h1>
+<div class="section" id="sectionSection3">
+<div>The sample app contains the following:</div>
+<ul>
+<li>
+<div><strong>PHPWithOAuth project</strong>, which contains:</div>
+<ul>
+<li>
+<div><strong>AppManifest.xml file</strong>, which registers the provider-hosted application with SharePoint.</div>
+</li><li>
+<div><strong>SharedDoc module</strong>, which defines a document library that will be deployed to the app web of your SharePoint site.</div>
+</li></ul>
+</li><li>
+<div><strong>PHPWithOAuthSite project</strong>, which contains:</div>
+<ul>
+<li>
+<div><strong>index.php file:</strong> The default page of the app for SharePoint. It gets all items from a SharePoint document library and uses OAuth to authorize the request. It also displays the documents and allows you to interact with them. It uses the
+ SharePoint theme from the host web.</div>
+</li><li>
+<div><strong>uploader.html:</strong> Contains the code that contains the form that uploads files</div>
+</li><li>
+<div><strong>upload_file.php:</strong> Contains the code that submits the file from the remotely hosted app to the SharePoint document library.</div>
+</li><li>
+<div><strong>php-jwt folder:</strong> Contains the code that handles OAuth.</div>
+</li><li>
+<div><strong>web.config file.</strong></div>
+</li></ul>
+</li></ul>
+</div>
+<h1 class="heading">Configure the sample</h1>
+<div class="section" id="sectionSection4">
+<div>Follow these steps to configure the sample.</div>
+<ol>
+<li>
+<div>Open the <strong>PHPWithOAuth.sln</strong> file in Visual Studio 2012.</div>
+</li><li>
+<div>In the <span class="ui">Properties</span> pane, change the <span class="ui">
+Site URL</span> property. It is the absolute URL of your SharePoint test site collection on Office 365: https://<span class="placeholder">&lt;my tenant&gt;</span>.sharepoint.com/sites/dev.</div>
+</li></ol>
+</div>
+<h1 class="heading">Build, deploy, and run the sample</h1>
+<div class="section" id="sectionSection5">
+<h3 class="procedureSubHeading">To build and deploy the PHP site</h3>
+<div class="subSection">
+<ol>
+<li>
+<div>Create an empty website on Windows Azure and download the publishing profile for that site.</div>
+</li><li>
+<div>Register an app at the /_layouts/15/appregnew.aspx page of your SharePoint test site collection on Office 365: https://<span class="placeholder">&lt;my tenant&gt;</span>.sharepoint.com/sites/dev/_layouts/15/appregnew.aspx. Be sure to fill in the following
+ details:</div>
+<ul>
+<li>
+<div>Generate a client ID and client secret. You'll need to add the client secret to the
+<strong>index.php</strong> file in the solution. You'll also need to provide the client secret to the publishing wizard.</div>
+</li><li>
+<div>Enter the URL of the website that you created on Windows Azure for <span class="ui">
+App Domain</span>.</div>
+</li><li>
+<div>Leave the <span class="ui">Redirect URI</span> field empty.</div>
+</li></ul>
+</li><li>
+<div>Open the <strong>index.php</strong> file and update the <span><span class="keyword">$key</span></span> variable on line 8 with the client secret value that you created when you registered the app.</div>
+</li><li>
+<div>Right-click the <span class="ui">PHPWithOAuthSite</span> project in <span class="ui">
+Solution Explorer</span>, and then select <span class="ui">Publishing</span>.</div>
+</li><li>
+<div>Follow the instructions to import the publishing profile of your Windows Azure site, and publish the PHP project to Windows Azure.</div>
+</li></ol>
+</div>
+<h3 class="procedureSubHeading">To build and deploy the app for SharePoint</h3>
+<div class="subSection">
+<ol>
+<li>
+<div>Right-click the <span class="ui">PHPWithOAuth</span> project in <span class="ui">
+Solution Explorer</span>, and then select <span class="ui">Publish</span>.</div>
+</li><li>
+<div>For <span class="ui">Which profile do you want to publish</span>, type <span class="input">
+PHPWithOAuth</span> to create a publishing profile. Click <span class="ui">Next</span>.</div>
+</li><li>
+<div>For <span class="ui">Where is your website hosted</span>, type the location of the Windows Azure site where you published the
+<span class="ui">PHPWithOAuthSite</span> PHP project.</div>
+</li><li>
+<div>For client ID, type the client ID value that you created when you registered the app.</div>
+</li><li>
+<div>For client secret, type the client secret value that you created when you registered the app.</div>
+</li><li>
+<div>Click <span class="ui">Next</span>, and then click <span class="ui">Finish</span>.</div>
+<div>The resulting app package file has an .app extension (PHPWithOAuth.app) and is saved in the
+<span class="ui">app.publish</span> subfolder of the <span class="ui">bin\Debug</span> folder of the Visual Studio solution.</div>
+</li><li>
+<div>In your browser, navigate to your Office 365 Developer Site. Click the <span class="ui">
+Admin</span> drop-down list in the upper right corner of the page and select <span class="ui">
+SharePoint</span> to go to the SharePoint admin center.</div>
+</li><li>
+<div>Click <span class="ui">apps</span> in the left panel, and then click <span class="ui">
+App Catalog</span> in the center column.</div>
+<div>If you don't have an App Catalog site, you'll have to follow the instructions to create a new one.</div>
+</li><li>
+<div>Upload the PHPWithOAuth.app file that you created when you published the PHPWithOAuth project to the App Catalog by following these steps:</div>
+<ol>
+<li>
+<div>Click <span class="ui">Apps for SharePoint</span> in the left panel.</div>
+</li><li>
+<div>Click <span class="ui">Files</span>, <span class="ui">Upload Document</span> in the ribbon and browse to the PHPWithOAuth.app file. You don't have to add any metadata or change any of the default values.</div>
+</li><li>
+<div>Click <span class="ui">OK</span>.</div>
+</li></ol>
+</li><li>
+<div>In your browser, navigate to the site collection in your Office 365 Developer Site where you want to deploy the app.</div>
+</li><li>
+<div>Click the gear icon in the top right of the page, and select <span class="ui">
+Add an app</span> from the drop-down menu.</div>
+</li><li>
+<div>You'll see a new app named <span class="ui">PHPWithOAuth</span>. Click the name, and then click
+<span class="ui">Trust It</span>.</div>
+<div>Wait for the app to install. This might take several minutes.</div>
+</li></ol>
+</div>
+<h3 class="procedureSubHeading">To run the sample</h3>
+<div class="subSection">
+<ol>
+<li>
+<div>After the app installs completely, click the app icon to launch the app.</div>
+</li><li>
+<div>Click the <span class="ui">Add New Document</span> button and upload a document from your local machine.</div>
+<div>This document can't have a space in its name. The document will be displayed after the page refreshes.</div>
+</li><li>
+<div>Perform operations on a file, such as download or check out and edit properties by right-clicking the file name.</div>
+</li></ol>
+</div>
+</div>
+<h1 class="heading">Troubleshooting</h1>
+<div class="section" id="sectionSection6">
+<div>If you see JavaScript errors when you run the app, be sure that your Windows Azure site is on your browser's trusted sites list.</div>
+<div>&nbsp;</div>
+</div>
+<h1 class="heading">Change log</h1>
+<div class="section" id="sectionSection7">
+<div>First release.</div>
+</div>
+<h1 class="heading">Related content</h1>
+<div class="section" id="sectionSection8">
+<ul>
+<li>
+<div><a href="http://msdn.microsoft.com/library/3038dd73-41ee-436f-8c78-ef8e6869bf7b.aspx" >How to: Create a basic provider-hosted app for SharePoint</a></div>
+</li><li>
+<div><a href="http://msdn.microsoft.com/en-us/library/fp179933.aspx" >Deploying and installing apps for SharePoint: methods and options</a></div>
+</li><li>
+<div><a href="http://msdn.microsoft.com/en-us/library/jj164022(v=office.15)" >How to: Complete basic operations using SharePoint 2013 REST endpoints</a></div>
+</li></ul>
+</div>
+</div>
+</div>
+<p>&nbsp;</p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

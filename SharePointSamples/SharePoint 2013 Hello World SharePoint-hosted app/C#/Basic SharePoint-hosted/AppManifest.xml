@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<App xmlns="http://schemas.microsoft.com/sharepoint/2012/app/manifest"
+     Name="BasicSharePointhosted"
+     ProductID="{ae3cf94f-4cab-4b86-9b6e-91714ab9ca63}"
+     Version="1.0.0.0"
+     SharePointMinVersion="15.0.0.0"
+>
+  <Properties>
+    <Title>Basic SharePoint-hosted</Title>
+    <StartPage>~appWebUrl/Pages/Home.aspx?{StandardTokens}</StartPage>
+  </Properties>
+
+  <AppPrincipal>
+    <Internal />
+  </AppPrincipal>
+
+
+<AppPermissionRequests><AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read" /></AppPermissionRequests></App>

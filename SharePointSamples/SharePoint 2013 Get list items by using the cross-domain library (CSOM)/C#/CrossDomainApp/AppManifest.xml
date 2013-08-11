@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<App
+    SharePointMaxVersion="16.0.0.0"
+    ProductID="{2B849B01-3FA1-4442-9663-CD9BAE17E16F}"
+    Version="1.0.0.0"
+    SharePointMinVersion="15.0.0.0"
+    xmlns="http://schemas.microsoft.com/sharepoint/2012/app/manifest"
+    Name="CrossDomainAppCSOM"
+    >
+
+    <!-- The {StandardTokens} token includes the 
+         query string parameters required by the sample.  -->
+    <Properties>
+        <Title>CrossDomainAppCSOM</Title>
+        <StartPage>~remoteAppUrl/CrossDomainCallCSOM.html?{StandardTokens}</StartPage>
+    </Properties>
+
+    <!-- The ~remoteAppUrl token resolves to the web project's URL -->
+    <AppPrincipal>
+    <Internal AllowedRemoteHostUrl="~remoteAppUrl" />
+  </AppPrincipal>
+
+    <AppPermissionRequests>
+    </AppPermissionRequests>
+</App>
+

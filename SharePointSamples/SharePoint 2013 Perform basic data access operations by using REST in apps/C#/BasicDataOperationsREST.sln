@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicDataOperationsREST", "BasicDataOperationsREST\BasicDataOperationsREST.csproj", "{108638E2-3811-473F-BEF1-315608F0EFE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicDataOperationsRESTWeb", "BasicDataOperationsRESTWeb\BasicDataOperationsRESTWeb.csproj", "{820FA4B4-0CFB-4938-9139-FC52333E7827}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{108638E2-3811-473F-BEF1-315608F0EFE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{108638E2-3811-473F-BEF1-315608F0EFE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{108638E2-3811-473F-BEF1-315608F0EFE4}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{108638E2-3811-473F-BEF1-315608F0EFE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{108638E2-3811-473F-BEF1-315608F0EFE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{108638E2-3811-473F-BEF1-315608F0EFE4}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{820FA4B4-0CFB-4938-9139-FC52333E7827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{820FA4B4-0CFB-4938-9139-FC52333E7827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{820FA4B4-0CFB-4938-9139-FC52333E7827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{820FA4B4-0CFB-4938-9139-FC52333E7827}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

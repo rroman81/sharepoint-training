@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTHelperApp", "RESTHelperApp\RESTHelperApp.csproj", "{484193E5-14FA-431D-BBC1-61562FBA220B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTHelperAppWeb", "RESTHelperAppWeb\RESTHelperAppWeb.csproj", "{1FB3D4C4-B319-4E79-8164-967E3431F929}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FB3D4C4-B319-4E79-8164-967E3431F929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FB3D4C4-B319-4E79-8164-967E3431F929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FB3D4C4-B319-4E79-8164-967E3431F929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FB3D4C4-B319-4E79-8164-967E3431F929}.Release|Any CPU.Build.0 = Release|Any CPU
+		{484193E5-14FA-431D-BBC1-61562FBA220B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{484193E5-14FA-431D-BBC1-61562FBA220B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{484193E5-14FA-431D-BBC1-61562FBA220B}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{484193E5-14FA-431D-BBC1-61562FBA220B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{484193E5-14FA-431D-BBC1-61562FBA220B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{484193E5-14FA-431D-BBC1-61562FBA220B}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

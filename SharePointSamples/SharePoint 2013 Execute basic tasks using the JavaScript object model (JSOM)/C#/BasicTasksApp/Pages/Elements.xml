@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/">
+  <Module Name="Pages">
+<File Path="Pages\BasicTasksJSOM.html" Url="Pages/BasicTasksJSOM.html" />
+<File Path="Pages\Account.html" Url="Pages/Account.html" />
+<File Path="Pages\Contact.html" Url="Pages/Contact.html" />
+<File Path="Pages\Help.html" Url="Pages/Help.html" />
+</Module>
+</Elements>

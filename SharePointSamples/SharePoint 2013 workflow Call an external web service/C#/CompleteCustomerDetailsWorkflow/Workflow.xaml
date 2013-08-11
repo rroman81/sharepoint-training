@@ -1,0 +1,381 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="CompleteCustomerDetails.Complete_Customer_Details.Workflow" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="CompleteCustomerDetails.Complete_Customer_Details.Workflow_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
+ xmlns:msdad="clr-namespace:Microsoft.SharePoint.DesignTime.Activities.Design;assembly=Microsoft.SharePoint.DesignTime.Activities.Design"
+ xmlns:p="http://schemas.microsoft.com/workflow/2012/07/xaml/activities"
+ xmlns:p1="wf://workflow.windows.net/$Activities"
+ xmlns:s="clr-namespace:System;assembly=mscorlib"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Text</x:String>
+      <x:String>Microsoft.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.SharePoint.DesignTime.Activities</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>CompleteCustomerDetails</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Root" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="CustomerName" />
+      <Variable x:TypeArguments="x:String" Name="CustomerTitle" />
+      <Variable x:TypeArguments="x:String" Name="CustomerAddress" />
+      <Variable x:TypeArguments="x:String" Name="CustomerCountry" />
+      <Variable x:TypeArguments="x:String" Name="CustomerPhone" />
+      <Variable x:TypeArguments="x:String" Name="CustomerFax" />
+      <Variable x:TypeArguments="p:DynamicValue" Name="NorthwindServiceResponse" />
+      <Variable x:TypeArguments="x:String" Name="CustomerId" />
+    </Sequence.Variables>
+    <Sequence sap2010:Annotation.AnnotationText="Collect the CustomerID entered by the user in the item." DisplayName="Init" sap2010:WorkflowViewState.IdRef="Sequence_1">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="p:DynamicValue" Name="CustomerItemProperties" />
+      </Sequence.Variables>
+      <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Workflow starting..." />
+      <p1:WriteToHistory sap2010:WorkflowViewState.IdRef="WriteToHistory_1" Message="Workflow starting..." />
+      <p:SetUserStatus Description="Collecting CustomerID from SharePoint Item" sap2010:WorkflowViewState.IdRef="SetUserStatus_1" />
+      <p1:LookupSPListItem ItemGuid="{x:Null}" Properties="{x:Null}" sap2010:Annotation.AnnotationText="Use this activity to get a reference to the list item that triggered the workflow. Then click &quot;Get Properties&quot; to have the designer add the GetDynamicValueProperties activity that will pull the CustomerID from the DynamicValue response (aka: a REST call to SP with a JSON response for the item) and store it in a local variable." sap2010:WorkflowViewState.IdRef="LookupSPListItem_1">
+        <p1:LookupSPListItem.ItemId>
+          <InArgument x:TypeArguments="x:Int32">
+            <p:ExpressionContainerValue x:TypeArguments="x:Int32">
+              <p1:GetCurrentItemId />
+            </p:ExpressionContainerValue>
+          </InArgument>
+        </p1:LookupSPListItem.ItemId>
+        <p1:LookupSPListItem.ListId>
+          <InArgument x:TypeArguments="s:Guid">
+            <p:ExpressionContainerValue x:TypeArguments="s:Guid">
+              <p1:GetCurrentListId />
+            </p:ExpressionContainerValue>
+          </InArgument>
+        </p1:LookupSPListItem.ListId>
+        <p1:LookupSPListItem.Result>
+          <OutArgument x:TypeArguments="p:DynamicValue">
+            <mca:CSharpReference x:TypeArguments="p:DynamicValue">CustomerItemProperties</mca:CSharpReference>
+          </OutArgument>
+        </p1:LookupSPListItem.Result>
+      </p1:LookupSPListItem>
+      <p:GetODataProperties DisplayName="GetDynamicValueProperties" sap2010:WorkflowViewState.IdRef="GetODataProperties_1">
+        <p:GetODataProperties.Source>
+          <InArgument x:TypeArguments="p:DynamicValue">
+            <mca:CSharpValue x:TypeArguments="p:DynamicValue">CustomerItemProperties</mca:CSharpValue>
+          </InArgument>
+        </p:GetODataProperties.Source>
+        <scg:Dictionary x:TypeArguments="x:String, OutArgument">
+          <OutArgument x:TypeArguments="x:String" x:Key="Title">
+            <mca:CSharpReference x:TypeArguments="x:String">CustomerId</mca:CSharpReference>
+          </OutArgument>
+        </scg:Dictionary>
+      </p:GetODataProperties>
+      <p1:WriteToHistory sap2010:WorkflowViewState.IdRef="WriteToHistory_2">
+        <p1:WriteToHistory.Message>
+          <InArgument x:TypeArguments="x:String">
+            <mca:CSharpValue x:TypeArguments="x:String">"CustomerID = " + CustomerId</mca:CSharpValue>
+          </InArgument>
+        </p1:WriteToHistory.Message>
+      </p1:WriteToHistory>
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="Issue an OData query to the Northwind REST service to get customer information." DisplayName="Get Customer Data from Northwind" sap2010:WorkflowViewState.IdRef="Sequence_3">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="NorthwindServiceUri" />
+      </Sequence.Variables>
+      <p:SetUserStatus Description="Querying Northwind Service" sap2010:WorkflowViewState.IdRef="SetUserStatus_2" />
+      <Assign sap2010:Annotation.AnnotationText="Build the URI for the REST query." sap2010:WorkflowViewState.IdRef="Assign_1">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">
+            <mca:CSharpReference x:TypeArguments="x:String">NorthwindServiceUri</mca:CSharpReference>
+          </OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">
+            <mca:CSharpValue x:TypeArguments="x:String">"http://services.odata.org/Northwind/Northwind.svc/Customers('" + CustomerId + "')?$format=json"</mca:CSharpValue>
+          </InArgument>
+        </Assign.Value>
+      </Assign>
+      <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_2">
+        <InArgument x:TypeArguments="x:String">
+          <mca:CSharpValue x:TypeArguments="x:String">"HTTP GET: " + NorthwindServiceUri</mca:CSharpValue>
+        </InArgument>
+      </WriteLine>
+      <p1:WriteToHistory sap2010:WorkflowViewState.IdRef="WriteToHistory_3">
+        <p1:WriteToHistory.Message>
+          <InArgument x:TypeArguments="x:String">
+            <mca:CSharpValue x:TypeArguments="x:String">"Issuing OData Query: " + NorthwindServiceUri</mca:CSharpValue>
+          </InArgument>
+        </p1:WriteToHistory.Message>
+      </p1:WriteToHistory>
+      <p:HttpSend sap2010:WorkflowViewState.IdRef="HttpSend_1" Method="GET">
+        <p:HttpSend.ResponseContent>
+          <OutArgument x:TypeArguments="p:DynamicValue">
+            <mca:CSharpReference x:TypeArguments="p:DynamicValue">NorthwindServiceResponse</mca:CSharpReference>
+          </OutArgument>
+        </p:HttpSend.ResponseContent>
+        <p:HttpSend.Uri>
+          <InArgument x:TypeArguments="x:String">
+            <mca:CSharpValue x:TypeArguments="x:String">NorthwindServiceUri</mca:CSharpValue>
+          </InArgument>
+        </p:HttpSend.Uri>
+      </p:HttpSend>
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="Extract values from the Odata query." DisplayName="Process Response" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <p:SetUserStatus Description="Processing Northwind Service Response" sap2010:WorkflowViewState.IdRef="SetUserStatus_3" />
+      <p1:WriteToHistory sap2010:WorkflowViewState.IdRef="WriteToHistory_4" Message="Processing REST response" />
+      <p:GetDynamicValueProperties sap2010:Annotation.AnnotationText="Extract values from JSON response into local variables." sap2010:WorkflowViewState.IdRef="GetDynamicValueProperties_1">
+        <p:GetDynamicValueProperties.Source>
+          <InArgument x:TypeArguments="p:DynamicValue">
+            <mca:CSharpValue x:TypeArguments="p:DynamicValue">NorthwindServiceResponse</mca:CSharpValue>
+          </InArgument>
+        </p:GetDynamicValueProperties.Source>
+        <scg:Dictionary x:TypeArguments="x:String, OutArgument">
+          <OutArgument x:TypeArguments="x:String" x:Key="d/ContactName">
+            <mca:CSharpReference x:TypeArguments="x:String">CustomerName</mca:CSharpReference>
+          </OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="d/ContactTitle">
+            <mca:CSharpReference x:TypeArguments="x:String">CustomerTitle</mca:CSharpReference>
+          </OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="d/Address">
+            <mca:CSharpReference x:TypeArguments="x:String">CustomerAddress</mca:CSharpReference>
+          </OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="d/Phone">
+            <mca:CSharpReference x:TypeArguments="x:String">CustomerPhone</mca:CSharpReference>
+          </OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="d/Fax">
+            <mca:CSharpReference x:TypeArguments="x:String">CustomerFax</mca:CSharpReference>
+          </OutArgument>
+          <OutArgument x:TypeArguments="x:String" x:Key="d/Country">
+            <mca:CSharpReference x:TypeArguments="x:String">CustomerCountry</mca:CSharpReference>
+          </OutArgument>
+        </scg:Dictionary>
+      </p:GetDynamicValueProperties>
+      <Sequence sap2010:Annotation.AnnotationText="Write all values out in debug." DisplayName="Debugging" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_3">
+          <InArgument x:TypeArguments="x:String">
+            <mca:CSharpValue x:TypeArguments="x:String">"CustomerName=" +CustomerName</mca:CSharpValue>
+          </InArgument>
+        </WriteLine>
+        <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_4">
+          <InArgument x:TypeArguments="x:String">
+            <mca:CSharpValue x:TypeArguments="x:String">"CustomerTitle=" + CustomerTitle</mca:CSharpValue>
+          </InArgument>
+        </WriteLine>
+        <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_5">
+          <InArgument x:TypeArguments="x:String">
+            <mca:CSharpValue x:TypeArguments="x:String">"CustomerAddress=" + CustomerAddress</mca:CSharpValue>
+          </InArgument>
+        </WriteLine>
+        <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_6">
+          <InArgument x:TypeArguments="x:String">
+            <mca:CSharpValue x:TypeArguments="x:String">"CustomerCountry=" + CustomerCountry</mca:CSharpValue>
+          </InArgument>
+        </WriteLine>
+        <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_7">
+          <InArgument x:TypeArguments="x:String">
+            <mca:CSharpValue x:TypeArguments="x:String">"CustomerPhone=" + CustomerPhone</mca:CSharpValue>
+          </InArgument>
+        </WriteLine>
+        <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_8">
+          <InArgument x:TypeArguments="x:String">
+            <mca:CSharpValue x:TypeArguments="x:String">"CustomerFax=" + CustomerFax</mca:CSharpValue>
+          </InArgument>
+        </WriteLine>
+      </Sequence>
+      <p1:WriteToHistory sap2010:WorkflowViewState.IdRef="WriteToHistory_5" Message="Northwind service response processed." />
+    </Sequence>
+    <Sequence sap2010:Annotation.AnnotationText="Update the customer list item with the Northwind data." DisplayName="Update Customer Item" sap2010:WorkflowViewState.IdRef="Sequence_6">
+      <p:SetUserStatus Description="Updating Customer List Item" sap2010:WorkflowViewState.IdRef="SetUserStatus_4" />
+      <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_10" Text="Updating list item" />
+      <p1:WriteToHistory sap2010:WorkflowViewState.IdRef="WriteToHistory_6" Message="Updating customer data..." />
+      <p1:UpdateListItem ItemGuid="{x:Null}" ListItemProperties="{x:Null}" sap2010:Annotation.AnnotationText="Update the customer list item that triggered the workflow with the data retrieved from the Northwind service." sap2010:WorkflowViewState.IdRef="UpdateListItem_1">
+        <p1:UpdateListItem.ItemId>
+          <InArgument x:TypeArguments="x:Int32">
+            <p:ExpressionContainerValue x:TypeArguments="x:Int32">
+              <p1:GetCurrentItemId />
+            </p:ExpressionContainerValue>
+          </InArgument>
+        </p1:UpdateListItem.ItemId>
+        <p1:UpdateListItem.ListId>
+          <InArgument x:TypeArguments="s:Guid">
+            <p:ExpressionContainerValue x:TypeArguments="s:Guid">
+              <p1:GetCurrentListId />
+            </p:ExpressionContainerValue>
+          </InArgument>
+        </p1:UpdateListItem.ListId>
+        <p1:UpdateListItem.ListItemPropertiesDynamicValue>
+          <InArgument x:TypeArguments="p:DynamicValue">
+            <p:SetDynamicValueProperties>
+              <scg:Dictionary x:TypeArguments="x:String, InArgument">
+                <InArgument x:TypeArguments="x:String" x:Key="ContactName">
+                  <mca:CSharpValue x:TypeArguments="x:String">CustomerName</mca:CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="JobTitle">
+                  <mca:CSharpValue x:TypeArguments="x:String">CustomerTitle</mca:CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="WorkAddress">
+                  <mca:CSharpValue x:TypeArguments="x:String">CustomerAddress</mca:CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="WorkCountry">
+                  <mca:CSharpValue x:TypeArguments="x:String">CustomerCountry</mca:CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="WorkPhone">
+                  <mca:CSharpValue x:TypeArguments="x:String">CustomerPhone</mca:CSharpValue>
+                </InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="WorkFax">
+                  <mca:CSharpValue x:TypeArguments="x:String">CustomerFax</mca:CSharpValue>
+                </InArgument>
+              </scg:Dictionary>
+            </p:SetDynamicValueProperties>
+          </InArgument>
+        </p1:UpdateListItem.ListItemPropertiesDynamicValue>
+      </p1:UpdateListItem>
+      <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_11" Text="Customer updated." />
+      <p1:WriteToHistory sap2010:WorkflowViewState.IdRef="WriteToHistory_7" Message="Customer updated." />
+    </Sequence>
+    <sads:DebugSymbol.Symbol>d0xjOlxEZXZcQ29tcGxldGVDdXN0b21lckRldGFpbHNcQ29tcGxldGVDdXN0b21lckRldGFpbHNXb3JrZmxvd1xXb3JrZmxvdy54YW1sVCoDgQIOAgEBNQVkEAMBjwJlBY4BEAMBywGPAQXOARACAUfPAQX/ARACAQI5BzleAwHBAjoHOm4DAb8COwc7hQEDAb0CPAdQHQMBsAJRB1weAwGbAl0HYxsDAZACaQdpdQMBjQJqB3UQAwH4AXYHehMDAe0BeweBARsDAeIBggEHjQEUAwHMAZABB5ABgAEDAckBkQEHkQFyAwHHAZIBB6wBJQMBhwGtAQfMARICAUrNAQfNAX8CAUjQAQfQAXYCAUXRAQfRAV0CAUPSAQfSAXMCAUHTAQf8ARsCAQf9AQf9AVwCAQX+AQf+AWsCAQM5RTlbAwHCAjpVOmsDAcACOyQ7UAMBvgJGDUgqAwG8Ak0NTW8DAbICPw1BKgMBsQJUDVRnAwGmAlkNWV0DAZwCYA1gZwMBkQJpJGlAAwGOAnINcqsBAwGDAm0NbWYDAfkBeAt4awMB7gF+DX54AwHjAYoBDYoBXgMB2AGFAQ2FAXEDAc4BggFHggFMAwHNAZABJJABSwMBygGRAVWRAW8DAcgBqQENqQFiAwG+AZoBDZoBXwMBtQGdAQ2dAWADAawBoAENoAFiAwGjAaYBDaYBXgMBmgGVAQ2VAWkDAZEBowENowFgAwGIAa4BCbIBFQIBfbMBCbcBFQIBc7gBCbwBFQIBab0BCcEBFQIBX8IBCcYBFQIBVccBCcsBFQIBS80BVc0BfAIBSdABJNABQQIBRtEBRtEBWgIBRNIBVdIBcAIBQuQBDfkBKwIBCt0BDd8BKgIBCdYBDdgBKgIBCP0BRv0BWQIBBv4BVf4BaAIBBEcPRyYEAbwCAUAPQCYEAbECAbABDbABaAIBfrUBDbUBawIBdLoBDboBbwIBar8BDb8BbwIBYMQBDcQBawIBVskBDckBZwIBTO0BE+0BYAIBOOcBE+cBXQIBL/MBE/MBXgIBJvABE/ABYAIBHfYBE/YBXAIBFOoBE+oBXgIBC94BD94BJgMBCQHXAQ/XASYDAQgB</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="247,62" />
+      <sap2010:ViewStateData Id="WriteToHistory_1" sap:VirtualizedContainerService.HintSize="247,68" />
+      <sap2010:ViewStateData Id="SetUserStatus_1" sap:VirtualizedContainerService.HintSize="247,22" />
+      <sap2010:ViewStateData Id="LookupSPListItem_1" sap:VirtualizedContainerService.HintSize="247,277">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <scg:Dictionary x:TypeArguments="x:String, msdad:ViewStateNameValue" x:Key="SPLocalizedDisplayNames">
+              <msdad:ViewStateNameValue x:Key="ListId" DisplayName="(current list)" Value="$CurrentListId" />
+              <msdad:ViewStateNameValue x:Key="ItemId" DisplayName="(current item)" Value="$CurrentItemId" />
+            </scg:Dictionary>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="GetODataProperties_1" sap:VirtualizedContainerService.HintSize="247,92">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="Properties.SelectedEntityType">Lists/Customers</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteToHistory_2" sap:VirtualizedContainerService.HintSize="247,68" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="200,104">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="SetUserStatus_2" sap:VirtualizedContainerService.HintSize="242,22" />
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="242,85">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteLine_2" sap:VirtualizedContainerService.HintSize="242,62" />
+      <sap2010:ViewStateData Id="WriteToHistory_3" sap:VirtualizedContainerService.HintSize="242,68" />
+      <sap2010:ViewStateData Id="HttpSend_1" sap:VirtualizedContainerService.HintSize="242,62" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="200,104">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="SetUserStatus_3" sap:VirtualizedContainerService.HintSize="247,22" />
+      <sap2010:ViewStateData Id="WriteToHistory_4" sap:VirtualizedContainerService.HintSize="247,68" />
+      <sap2010:ViewStateData Id="GetDynamicValueProperties_1" sap:VirtualizedContainerService.HintSize="247,130">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteLine_3" sap:VirtualizedContainerService.HintSize="211,62" />
+      <sap2010:ViewStateData Id="WriteLine_4" sap:VirtualizedContainerService.HintSize="211,62" />
+      <sap2010:ViewStateData Id="WriteLine_5" sap:VirtualizedContainerService.HintSize="211,62" />
+      <sap2010:ViewStateData Id="WriteLine_6" sap:VirtualizedContainerService.HintSize="211,62" />
+      <sap2010:ViewStateData Id="WriteLine_7" sap:VirtualizedContainerService.HintSize="211,62" />
+      <sap2010:ViewStateData Id="WriteLine_8" sap:VirtualizedContainerService.HintSize="211,62" />
+      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="247,74">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteToHistory_5" sap:VirtualizedContainerService.HintSize="247,68" />
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="269,669">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="SetUserStatus_4" sap:VirtualizedContainerService.HintSize="211,22" />
+      <sap2010:ViewStateData Id="WriteLine_10" sap:VirtualizedContainerService.HintSize="211,62" />
+      <sap2010:ViewStateData Id="WriteToHistory_6" sap:VirtualizedContainerService.HintSize="211,68" />
+      <sap2010:ViewStateData Id="UpdateListItem_1" sap:VirtualizedContainerService.HintSize="211,136">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <scg:Dictionary x:TypeArguments="x:String, msdad:ViewStateNameValue" x:Key="SPLocalizedDisplayNames">
+              <msdad:ViewStateNameValue x:Key="ItemId" DisplayName="(current item)" Value="$CurrentItemId" />
+              <msdad:ViewStateNameValue x:Key="ListId" DisplayName="(current list)" Value="$CurrentListId" />
+            </scg:Dictionary>
+            <x:String x:Key="ListItemPropertiesDynamicValue.SelectedEntityType"></x:String>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WriteLine_11" sap:VirtualizedContainerService.HintSize="211,62" />
+      <sap2010:ViewStateData Id="WriteToHistory_7" sap:VirtualizedContainerService.HintSize="211,68" />
+      <sap2010:ViewStateData Id="Sequence_6" sap:VirtualizedContainerService.HintSize="200,89">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="222,630">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="CompleteCustomerDetails.Complete_Customer_Details.Workflow_1" sap:VirtualizedContainerService.HintSize="262,710" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

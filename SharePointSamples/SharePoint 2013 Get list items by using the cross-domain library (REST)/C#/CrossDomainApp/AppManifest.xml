@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<App
+    SharePointMaxVersion="16.0.0.0"
+    ProductID="{CADF570A-9872-44B2-8BE9-AB2D87CCCA64}"
+    Version="1.0.0.0"
+    SharePointMinVersion="15.0.0.0"
+    xmlns="http://schemas.microsoft.com/sharepoint/2012/app/manifest"
+    Name="CrossDomainAppREST"
+    >
+
+  <!-- The {StandardTokens} token includes the 
+         query string parameters required by the sample.  -->
+  <Properties>
+        <Title>CrossDomainAppREST</Title>
+        <StartPage>~remoteAppUrl/CrossDomainCallREST.html?{StandardTokens}</StartPage>
+    </Properties>
+
+    <!-- The ~remoteAppUrl token resolves to the web project's URL -->
+    <AppPrincipal>
+    <Internal AllowedRemoteHostUrl="~remoteAppUrl" />
+  </AppPrincipal>
+
+    <AppPermissionRequests>
+    </AppPermissionRequests>
+</App>
+

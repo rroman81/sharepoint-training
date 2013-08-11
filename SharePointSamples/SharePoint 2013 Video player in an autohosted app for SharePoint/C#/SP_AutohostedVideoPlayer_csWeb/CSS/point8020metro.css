@@ -1,0 +1,31 @@
+﻿body {
+    font-size:14px; font-family: Segoe UI, sans-serif; color:#2A2A2A;
+}
+.fl{
+    float:left;
+}
+.noFloat{
+    float:left;
+}
+.tile{
+    width:100px;height:100px;color:#FFFFFF;margin:2px;cursor:pointer;padding:5px;float:left;text-align:left;font-family:Segoe UI Light, sans-serif; font-size:18px;background-image:url(../images/MetroPlay.png);background-repeat: no-repeat; background-position:bottom right;
+}
+.tileBody{
+    text-align:left;font-family:Segoe UI, sans-serif; font-size:12px;margin-top:10px;margin-bottom:10px;
+}
+.tileOrange{
+    background-color:#F09609;
+}
+.tileOrange:hover{
+    background-color:#F3AB3A;
+}
+.tileRed{
+    background-color:#D24726;
+}
+.tileRed:hover{
+    background-color:#DB6B51;
+}
+.heading{
+    font-family:Segoe UI Light, sans-serif; font-size:24px; color:#FF7B0A;
+    }
+.scroller{overflow-y: scroll; max-height:384px; max-width:135px; margin:10px;}
